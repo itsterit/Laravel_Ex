@@ -61,9 +61,23 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            #scroll__elem::-webkit-scrollbar {
+            width: 10px;
+            background-color: #f9f9fd;
+            }
+
+            #scroll__elem::-webkit-scrollbar-thumb {
+            background-color: black;
+            }
+
+            #scroll__elem::-webkit-scrollbar-track {
+            border-radius: 10px;
+            background-color: #f9f9fd;
+            }
         </style>
     </head>
-    <body>
+    <body id="scroll__elem">
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -81,7 +95,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                Easy car rent - AutoRent
                 </div>
 
                 <div class="links">
