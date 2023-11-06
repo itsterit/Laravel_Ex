@@ -26,9 +26,31 @@
         </div>
     </div>
 
+    <!-- Харрактеристики -->
     <div class="mb-4">
         <select class="form-control mb-2">
-            <option disabled selected>Тип двигателя</option>
+            <option selected>Марка (неопределен)</option>
+            @if(count($Brands))
+                @foreach($Brands as $brand)
+                    <option>{{ $brand->brand_name }}</option>
+                @endforeach
+            @endif
+        </select>
+        @if ( Auth::user()->is_admin )
+            <form class="d-flex flex-row justify-content-end ">
+                <div class="mr-2">
+                    <input type="text" class="form-control col-12" id="inputPassword2" placeholder="Добавить новый тип">
+                </div>
+                <div class="">
+                    <button class="btn btn-outline-primary" type="button">Добавить</button>
+                </div>
+            </form>
+        @endif
+    </div>
+
+    <div class="mb-4">
+        <select class="form-control mb-2">
+            <option selected>Тип двигателя(неопределен)</option>
             @if(count($EngineTypes))
                 @foreach($EngineTypes as $engin_type)
                     <option>{{ $engin_type->engine_type_name }}</option>
@@ -49,7 +71,7 @@
 
     <div class="mb-4">
         <select class="form-control mb-2">
-            <option disabled selected>Тип кузова</option>
+            <option selected>Тип кузова(неопределен)</option>
             @if(count($BodyTypes))
                 @foreach($BodyTypes as $body_type)
                     <option>{{ $body_type->body_type_name }}</option>

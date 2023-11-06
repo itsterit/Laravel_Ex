@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\bodytypes;
 use App\enginetypes;
+use App\brands;
 use Illuminate\Http\Request;
 
 class CharacteristicHandler extends Controller
@@ -12,6 +13,7 @@ class CharacteristicHandler extends Controller
     {
         $EngineTypes = enginetypes::all();      
         $BodyTypes = bodytypes::all();      
-        return view('home', compact('EngineTypes', 'BodyTypes'));
+        $Brands = brands::all();      
+        return view('home', compact('EngineTypes', 'BodyTypes', 'Brands'));
     }
 }
