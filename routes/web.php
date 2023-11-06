@@ -17,6 +17,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/car', 'CharacteristicHandler@SearchCharacteristic');
+Route::get('/home', 'CharacteristicHandler@SearchCharacteristic');
+// Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/car', 'CharacteristicHandler@SearchCharacteristic');

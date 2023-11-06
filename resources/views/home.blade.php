@@ -27,10 +27,12 @@
     </div>
     <div>
         <select class="form-control mb-2">
-            <option disabled selected>Тип кузова</option>
-            <option>Default select</option>
-            <option>Default select</option>
-            <option>Default select</option>
+            <option disabled selected>Тип двигателя</option>
+            @if(count($Character))
+                @foreach($Character as $engin_type)
+                    <option>{{ $engin_type->engine_type_name }}</option>
+                @endforeach
+            @endif
         </select>
         @if ( Auth::user()->is_admin )
             <form class="d-flex flex-row justify-content-end ">
