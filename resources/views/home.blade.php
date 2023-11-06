@@ -25,11 +25,12 @@
             </div>
         </div>
     </div>
-    <div>
+
+    <div class="mb-4">
         <select class="form-control mb-2">
             <option disabled selected>Тип двигателя</option>
-            @if(count($Enginetypes))
-                @foreach($Enginetypes as $engin_type)
+            @if(count($EngineTypes))
+                @foreach($EngineTypes as $engin_type)
                     <option>{{ $engin_type->engine_type_name }}</option>
                 @endforeach
             @endif
@@ -45,5 +46,27 @@
             </form>
         @endif
     </div>
+
+    <div class="mb-4">
+        <select class="form-control mb-2">
+            <option disabled selected>Тип кузова</option>
+            @if(count($BodyTypes))
+                @foreach($BodyTypes as $body_type)
+                    <option>{{ $body_type->body_type_name }}</option>
+                @endforeach
+            @endif
+        </select>
+        @if ( Auth::user()->is_admin )
+            <form class="d-flex flex-row justify-content-end ">
+                <div class="mr-2">
+                    <input type="text" class="form-control col-12" id="inputPassword2" placeholder="Добавить новый тип">
+                </div>
+                <div class="">
+                    <button class="btn btn-outline-primary" type="button">Добавить</button>
+                </div>
+            </form>
+        @endif
+    </div>
+
 </div>
 @endsection
