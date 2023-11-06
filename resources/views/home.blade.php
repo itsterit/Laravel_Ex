@@ -28,8 +28,8 @@
     <div>
         <select class="form-control mb-2">
             <option disabled selected>Тип двигателя</option>
-            @if(count($Character))
-                @foreach($Character as $engin_type)
+            @if(count($Enginetypes))
+                @foreach($Enginetypes as $engin_type)
                     <option>{{ $engin_type->engine_type_name }}</option>
                 @endforeach
             @endif
