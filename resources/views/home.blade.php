@@ -27,62 +27,57 @@
     </div>
 
     <!-- Харрактеристики -->
+    @php
+        $GET_Brands = $_GET['Brands'] ?? "";
+        echo $GET_Brands
+    @endphp
     <div class="mb-4">
-        <select class="form-control mb-2">
-            <option selected>Марка (неопределен)</option>
-            @if(count($Brands))
-                @foreach($Brands as $brand)
-                    <option>{{ $brand->brand_name }}</option>
-                @endforeach
-            @endif
-        </select>
-        @if ( Auth::user()->is_admin )
-            <form class="d-flex flex-row justify-content-end ">
-                <div class="mr-2">
-                    <input type="text" class="form-control col-12" id="inputPassword2" placeholder="Добавить новый тип">
-                </div>
-                <div class="">
-                    <button class="btn btn-outline-primary" type="button">Добавить</button>
-                </div>
-            </form>
-        @endif
-    </div>
-
-    <div class="mb-4">
-        <form method="post" action="">
-            <select class="form-control mb-2" name="EngineTypes">
-                <option selected>Тип двигателя(неопределен)</option>
-                @if(count($EngineTypes))
-                    @foreach($EngineTypes as $engin_type)
-                        <option>{{ $engin_type->engine_type_name }}</option>
+        <form method="get" action="/home" id="Brands">
+            <select class="form-control mb-2" name="Brands" onchange="document.getElementById('Brands').submit()">
+                @if( $GET_Brands != "" )
+                    <option  value="-1" selected>Марка (неопределен)</option>
+                @else
+                    <option value="-1" >Марка (неопределен)</option>
+                @endif
+                @if(count($Brands))
+                    @foreach($Brands as $brand)
+                        @if( $GET_Brands ==  $brand->brand_id)
+                            <option selected value="{{ $brand->brand_id }}">{{ $brand->brand_name }}</option>
+                        @else
+                            <option value="{{ $brand->brand_id }}">{{ $brand->brand_name }}</option>
+                        @endif
                     @endforeach
                 @endif
+
             </select>
             @if ( Auth::user()->is_admin )
                 <form class="d-flex flex-row justify-content-end ">
                     <div class="mr-2">
-                        <input type="text" class="form-control col-12" id="inputPassword2" placeholder="Добавить ">
+                        <input type="text" class="form-control col-12" id="inputPassword2" placeholder="Добавить новый тип">
                     </div>
                     <div class="">
                         <button class="btn btn-outline-primary" type="button">Добавить</button>
                     </div>
                 </form>
             @endif
-            <INPUT TYPE="submit" name="Отправить" />
         </form>
     </div>
 
+    @php
+        $GET_BodyTypes = $_GET['BodyTypes'] ?? "";
+        echo  $GET_BodyTypes
+    @endphp
     <div class="mb-4">
         <form method="get" action="/home" id="BodyTypes">
             <select class="form-control mb-2" name="BodyTypes" onchange="document.getElementById('BodyTypes').submit()">
-                @if( !isset($_GET['BodyTypes']))
-                    <option selected>Тип кузова(неопределен)</option>
+                @if( $GET_BodyTypes != "" )
+                    <option value="-1" selected>Тип кузова(неопределен)</option>
                 @else
-                    <option >Тип кузова(неопределен)</option>
+                    <option value="-1" >Тип кузова(неопределен)</option>
                 @endif
                 @if(count($BodyTypes))
                     @foreach($BodyTypes as $body_type)
-                        @if( $_GET['BodyTypes'] ==  $body_type->body_type_id)
+                        @if( $GET_BodyTypes ==  $body_type->body_type_id)
                             <option selected value="{{ $body_type->body_type_id }}">{{ $body_type->body_type_name }}</option>
                         @else
                             <option value="{{ $body_type->body_type_id }}">{{ $body_type->body_type_name }}</option>
@@ -102,34 +97,6 @@
             @endif
         </form>
     </div>
-
-    <div class="mb-4">
-        <select class="form-control mb-2">
-            <option selected>Модель(неопределенна)</option>
-            @if(count($Model))
-                @foreach($Model as $Model_type)
-                    <option>{{ $Model_type->model_name}}</option>
-                @endforeach
-            @endif
-        </select>
-        @if ( Auth::user()->is_admin )
-            <form class="d-flex flex-row justify-content-end ">
-                <div class="mr-2">
-                    <input type="text" class="form-control col-12" id="inputPassword2" placeholder="Добавить ">
-                </div>
-                <div class="">
-                    <button class="btn btn-outline-primary" type="button">Добавить</button>
-                </div>
-            </form>
-        @endif
-    </div>
-
-    <button class="btn btn-outline-primary" type="submit">Добавить</button>
-
-    <!-- @php
-        echo '<pre>';
-        print_r($_GET);
-    @endphp -->
 
 </div>
 @endsection
