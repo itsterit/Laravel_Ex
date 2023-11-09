@@ -26,14 +26,17 @@
         </div>
     </div>
 
-    <!-- Харрактеристики -->
     @php
+        $GET_BodyTypes = $_GET['BodyTypes'] ?? "";
         $GET_Brands = $_GET['Brands'] ?? "";
-        echo $GET_Brands
+        $GET_Engine = $_GET['EngineTypes'] ?? "";
+        $GET_Model = $_GET['Model'] ?? "";
     @endphp
     <div class="mb-4">
-        <form method="get" action="/home" id="Brands">
-            <select class="form-control mb-2" name="Brands" onchange="document.getElementById('Brands').submit()">
+        <form method="get" action="/home" id="user_car_config">
+
+            <!-- бренд -->
+            <select class="form-control mb-2" name="Brands" onchange="document.getElementById('user_car_config').submit()">
                 @if( $GET_Brands != "" )
                     <option  value="-1" selected>Марка (неопределен)</option>
                 @else
@@ -48,28 +51,10 @@
                         @endif
                     @endforeach
                 @endif
-
             </select>
-            @if ( Auth::user()->is_admin )
-                <form class="d-flex flex-row justify-content-end ">
-                    <div class="mr-2">
-                        <input type="text" class="form-control col-12" id="inputPassword2" placeholder="Добавить новый тип">
-                    </div>
-                    <div class="">
-                        <button class="btn btn-outline-primary" type="button">Добавить</button>
-                    </div>
-                </form>
-            @endif
-        </form>
-    </div>
 
-    @php
-        $GET_BodyTypes = $_GET['BodyTypes'] ?? "";
-        echo  $GET_BodyTypes
-    @endphp
-    <div class="mb-4">
-        <form method="get" action="/home" id="BodyTypes">
-            <select class="form-control mb-2" name="BodyTypes" onchange="document.getElementById('BodyTypes').submit()">
+            <!-- тип кузова -->
+            <select class="form-control mb-2" name="BodyTypes" onchange="document.getElementById('user_car_config').submit()">
                 @if( $GET_BodyTypes != "" )
                     <option value="-1" selected>Тип кузова(неопределен)</option>
                 @else
@@ -85,16 +70,43 @@
                     @endforeach
                 @endif
             </select>
-            @if ( Auth::user()->is_admin )
-                <form class="d-flex flex-row justify-content-end ">
-                    <div class="mr-2">
-                        <input type="text" class="form-control col-12" id="inputPassword2" placeholder="Добавить ">
-                    </div>
-                    <div class="">
-                        <button class="btn btn-outline-primary" type="button">Добавить</button>
-                    </div>
-                </form>
-            @endif
+
+            <!-- тип двигателя -->
+            <select class="form-control mb-2" name="EngineTypes" onchange="document.getElementById('user_car_config').submit()">
+                @if( $GET_Engine != "" )
+                    <option value="-1" selected>Тип двигателя(неопределен)</option>
+                @else
+                    <option value="-1" >Тип двигателя(неопределен)</option>
+                @endif
+                @if(count($EngineTypes))
+                    @foreach($EngineTypes as $Engine_Types)
+                        @if( $GET_Engine ==  $Engine_Types->engine_type_id)
+                            <option selected value="{{ $Engine_Types->engine_type_id }}">{{ $Engine_Types->engine_type_name }}</option>
+                        @else
+                            <option value="{{ $Engine_Types->engine_type_id }}">{{ $Engine_Types->engine_type_name }}</option>
+                        @endif
+                    @endforeach
+                @endif
+            </select>
+
+            <!-- модель -->
+            <select class="form-control mb-2" name="Model" onchange="document.getElementById('user_car_config').submit()">
+                @if( $GET_Model != "" )
+                    <option value="-1" selected>Модель(неопределен)</option>
+                @else
+                    <option value="-1" >Модель(неопределен)</option>
+                @endif
+                @if(count($Model))
+                    @foreach($Model as $Model_Types)
+                        @if( $GET_Model ==  $Model_Types->model_id)
+                            <option selected value="{{ $Model_Types->model_id }}">{{ $Model_Types->model_name }}</option>
+                        @else
+                            <option value="{{ $Model_Types->model_id }}">{{ $Model_Types->model_name }}</option>
+                        @endif
+                    @endforeach
+                @endif
+            </select>
+
         </form>
     </div>
 
