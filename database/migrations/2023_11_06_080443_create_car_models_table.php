@@ -19,10 +19,6 @@ class CreateCarModelsTable extends Migration
             $table->bigInteger('car_brand_id');
             $table->bigInteger('car_body_id');
             $table->bigInteger('car_engine_id');
-            $table->boolean('was_rented');
-            $table->bigInteger('rent_price');
-            $table->string('img_patch');
-            $table->timestamps();
             
             $table->foreign('car_brand_id')->references('brand_id')->on('brands');
             $table->foreign('car_body_id')->references('body_type_id')->on('bodytypes');

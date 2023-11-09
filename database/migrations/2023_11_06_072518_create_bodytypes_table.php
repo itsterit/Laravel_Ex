@@ -16,7 +16,6 @@ class CreateBodytypesTable extends Migration
         Schema::create('bodytypes', function (Blueprint $table) {
             $table->bigInteger('body_type_id')->index();
             $table->string('body_type_name');
-            $table->timestamps();
         });
     }
 

@@ -16,8 +16,10 @@ class CreateCarStoresTable extends Migration
         Schema::create('car_stores', function (Blueprint $table) {
             $table->bigInteger('car_id');
             $table->bigInteger('car_info');
-            $table->timestamps();
-
+            $table->boolean('was_rented');
+            $table->bigInteger('rent_price');
+            $table->string('img_patch');
+            
             $table->foreign('car_info')->references('model_id')->on('car_models');
         });
     }

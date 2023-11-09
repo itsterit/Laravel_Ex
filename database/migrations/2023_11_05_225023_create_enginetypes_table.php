@@ -16,7 +16,6 @@ class CreateEnginetypesTable extends Migration
         Schema::create('enginetypes', function (Blueprint $table) {
             $table->bigInteger('engine_type_id')->index();
             $table->string('engine_type_name');
-            $table->timestamps();
         });
     }
 
