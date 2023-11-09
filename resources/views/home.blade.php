@@ -39,7 +39,7 @@
         @if ( Auth::user()->is_admin )
             <form class="d-flex flex-row justify-content-end ">
                 <div class="mr-2">
-                    <input type="text" class="form-control col-12" id="inputPassword2" placeholder="Добавить новый тип">
+                    <input type="text" class="form-control col-12" id="inputPassword2" placeholder="Добавить ">
                 </div>
                 <div class="">
                     <button class="btn btn-outline-primary" type="button">Добавить</button>
@@ -60,7 +60,7 @@
         @if ( Auth::user()->is_admin )
             <form class="d-flex flex-row justify-content-end ">
                 <div class="mr-2">
-                    <input type="text" class="form-control col-12" id="inputPassword2" placeholder="Добавить новый тип">
+                    <input type="text" class="form-control col-12" id="inputPassword2" placeholder="Добавить ">
                 </div>
                 <div class="">
                     <button class="btn btn-outline-primary" type="button">Добавить</button>
@@ -81,7 +81,28 @@
         @if ( Auth::user()->is_admin )
             <form class="d-flex flex-row justify-content-end ">
                 <div class="mr-2">
-                    <input type="text" class="form-control col-12" id="inputPassword2" placeholder="Добавить новый тип">
+                    <input type="text" class="form-control col-12" id="inputPassword2" placeholder="Добавить ">
+                </div>
+                <div class="">
+                    <button class="btn btn-outline-primary" type="button">Добавить</button>
+                </div>
+            </form>
+        @endif
+    </div>
+
+    <div class="mb-4">
+        <select class="form-control mb-2">
+            <option selected>Модель(неопределенна)</option>
+            @if(count($Model))
+                @foreach($Model as $Model_type)
+                    <option>{{ $Model_type->model_name}}</option>
+                @endforeach
+            @endif
+        </select>
+        @if ( Auth::user()->is_admin )
+            <form class="d-flex flex-row justify-content-end ">
+                <div class="mr-2">
+                    <input type="text" class="form-control col-12" id="inputPassword2" placeholder="Добавить ">
                 </div>
                 <div class="">
                     <button class="btn btn-outline-primary" type="button">Добавить</button>
