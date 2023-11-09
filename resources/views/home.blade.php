@@ -90,18 +90,34 @@
             </select>
 
             <!-- модель -->
-            <select class="form-control mb-2" name="Model" onchange="document.getElementById('user_car_config').submit()">
+            <select class="form-control mb-2" name="Model" onchange="document.getElementById('user_car_config').submit()">             
                 @if( $GET_Model != "" )
-                    <option value="-1" selected>Модель(неопределен)</option>
+                    <option value="-1" selected>Модель(неопределенна)</option>
                 @else
-                    <option value="-1" >Модель(неопределен)</option>
+                    <option value="-1" >Модель(неопределенна)</option>
                 @endif
                 @if(count($Model))
                     @foreach($Model as $Model_Types)
-                        @if( $GET_Model ==  $Model_Types->model_id)
-                            <option selected value="{{ $Model_Types->model_id }}">{{ $Model_Types->model_name }}</option>
+                        @if(    ($GET_Brands != "" && $GET_Brands != -1)   ||   ($GET_BodyTypes != "" && $GET_BodyTypes != -1)    ||   ($GET_Engine != "" && $GET_Engine != -1)     )
+                            @if(    
+                                    (($GET_Brands    == $Model_Types->car_brand_id)  || ($GET_Brands    == "" || $GET_Brands    == -1)) &&
+                                    (($GET_BodyTypes == $Model_Types->car_body_id)   || ($GET_BodyTypes == "" || $GET_BodyTypes == -1)) &&
+                                    (($GET_Engine    == $Model_Types->car_engine_id) || ($GET_Engine    == "" || $GET_Engine    == -1))
+                                )
+                                <!-- вывод выбранного параметра определенного настройками -->
+                                @if( $GET_Model ==  $Model_Types->model_id)
+                                    <option selected value="{{ $Model_Types->model_id }}">{{ $Model_Types->model_name }}</option>
+                                @else
+                                    <option value="{{ $Model_Types->model_id }}">{{ $Model_Types->model_name }}</option>
+                                @endif
+                            @endif
+                        <!-- вывод всего т.к параметры не определены -->
                         @else
-                            <option value="{{ $Model_Types->model_id }}">{{ $Model_Types->model_name }}</option>
+                            @if( $GET_Model ==  $Model_Types->model_id)
+                                <option selected value="{{ $Model_Types->model_id }}">{{ $Model_Types->model_name }}</option>
+                            @else
+                                <option value="{{ $Model_Types->model_id }}">{{ $Model_Types->model_name }}</option>
+                            @endif
                         @endif
                     @endforeach
                 @endif
