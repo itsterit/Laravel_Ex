@@ -15,12 +15,13 @@ class CreateCarStoresTable extends Migration
     {
         Schema::create('car_stores', function (Blueprint $table) {
             $table->bigInteger('car_id');
+            $table->bigInteger('car_model_id');
             $table->string('car_info');
             $table->boolean('was_rented');
             $table->bigInteger('rent_price');
             $table->string('img_patch');
 
-            $table->foreign('car_id')->references('model_id')->on('car_models');
+            $table->foreign('car_model_id')->references('model_id')->on('car_models');
         });
     }
 
