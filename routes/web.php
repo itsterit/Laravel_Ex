@@ -18,5 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'CharacteristicHandler@SearchCharacteristic');
+Route::get('/StoreDataHandler', 'StoreDataHandler@index');
 // Route::get('/home', 'HomeController@index')->name('home');
 // Route::get('/car', 'CharacteristicHandler@SearchCharacteristic');

@@ -12,10 +12,10 @@ class CharacteristicHandler extends Controller
 {
     public function SearchCharacteristic()
     {
-        $EngineTypes = enginetypes::all();      
-        $BodyTypes = bodytypes::all();      
-        $Brands = brands::all();      
-        $Model = car_model::all();      
+        $EngineTypes = enginetypes::all();
+        $BodyTypes   = bodytypes::all();
+        $Brands      = brands::all();
+        $Model       = car_model::all();
         return view('home', compact('EngineTypes', 'BodyTypes', 'Brands', 'Model'));
     }
 }

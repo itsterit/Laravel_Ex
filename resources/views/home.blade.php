@@ -27,13 +27,13 @@
     </div>
 
     @php
-        $GET_BodyTypes = $_GET['BodyTypes'] ?? "";
-        $GET_Brands = $_GET['Brands'] ?? "";
-        $GET_Engine = $_GET['EngineTypes'] ?? "";
-        $GET_Model = $_GET['Model'] ?? "";
+        $GET_BodyTypes = $_GET['BodyTypes']   ?? "";
+        $GET_Brands    = $_GET['Brands']      ?? "";
+        $GET_Engine    = $_GET['EngineTypes'] ?? "";
+        $GET_Model     = $_GET['Model']       ?? "";
     @endphp
     <div class="mb-4">
-        <form method="get" action="/home" id="user_car_config">
+        <form method="get" action="/StoreDataHandler" id="user_car_config">
 
             <!-- бренд -->
             <select class="form-control mb-2" name="Brands" onchange="document.getElementById('user_car_config').submit()">
