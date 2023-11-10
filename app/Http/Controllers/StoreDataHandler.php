@@ -36,7 +36,7 @@ class StoreDataHandler extends Controller
             }
             else
             {
-                dd($Cars);
+                return view('OutCars', compact('EngineTypes', 'BodyTypes', 'Brands', 'Model'));
             }
 
         }

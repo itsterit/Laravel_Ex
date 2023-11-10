@@ -56,34 +56,61 @@
                 (($GET_Engine    == $DB_EngineTypes) || ($GET_Engine    == "" || $GET_Engine    == -1))
             )
             {
-                // $DB_Brands_param      = DB::select('SELECT `body_type_name` FROM `bodytypes` WHERE brand_id = ?', [$DB_Brands]);
+                // бренд
+                $DB_Brands_param = "";
+                $DB_Brands_      = DB::select('SELECT `brand_name` FROM `brands` WHERE brand_id = ?', [$DB_Brands]);
+                foreach($DB_Brands_ as $data)
+                {
+                    $DB_Brands_param = $data->brand_name;
+                    break;
+                }
 
+                // тип кузова
                 $DB_BodyTypes_param = "";
-                $DB_BodyTypes_search      = DB::select('SELECT `body_type_name` FROM `bodytypes` WHERE body_type_id = ?', [$DB_BodyTypes]);
-                foreach($DB_BodyTypes_search as $data)
+                $DB_BodyTypes_      = DB::select('SELECT `body_type_name` FROM `bodytypes` WHERE body_type_id = ?', [$DB_BodyTypes]);
+                foreach($DB_BodyTypes_ as $data)
                 {
                     $DB_BodyTypes_param = $data->body_type_name;
                     break;
                 }
 
-                // $DB_EngineTypes_param = DB::select('SELECT `car_brand_id` WHERE model_id = ?', [$DB_EngineTypes]);
+                // тип двигателя 
+                $DB_EngineTypes_param = "";
+                $DB_EngineTypes_      = DB::select('SELECT `engine_type_name` FROM `enginetypes` WHERE engine_type_id = ?', [$DB_EngineTypes]);
+                foreach($DB_EngineTypes_ as $data)
+                {
+                    $DB_EngineTypes_param = $data->engine_type_name;
+                    break;
+                }
                 @endphp
 
-                <div class="text-dark ">
-                    <div class="text-dark ">
-                        {{ $Cars_Param->car_info }}
-                    </div>
-                    <div class="text-dark ">
-                        {{ $Cars_Param->rent_price }}
-                    </div>
-                    <div class="text-dark ">
-                        {{ $Cars_Param->img_patch }}
-                    </div>
-                    <div class="text-dark ">
-                        {{ $Cars_Param->was_rented }}
-                    </div>
-                    <div class="text-dark ">
-                        {{ $DB_BodyTypes_param }}
+                <div class="d-flex flex-column">
+                    <div class="text-dark mb-5 d-flex flex-row">
+                        <div class="text-dark mb-5">
+                            <img src="{{ $Cars_Param->img_patch }}" class="rounded float-start" alt=".img">
+                        </div>
+                        
+                        <div class="text-dark mb-5 flex-column">
+                            <div class="text-dark ">
+                                Марка: {{ $DB_Brands_param }}
+                            </div>                        
+                            <div class="text-dark ">
+                                Тип кузова: {{ $DB_BodyTypes_param }}
+                            </div>
+                            <div class="text-dark ">
+                                Тип двигателя: {{ $DB_EngineTypes_param }}
+                            </div>
+                            <div class="text-dark ">
+                                модель: {{ $Cars_Param->car_info }}
+                            </div>
+                            <div class="text-dark ">
+                                @if( $Cars_Param->was_rented )
+                                    <button type="button" class="btn btn-danger">{{ $Cars_Param->rent_price }}</button>
+                                @else
+                                    <button type="button" class="btn btn-success">{{ $Cars_Param->rent_price }}</button>
+                                @endif
+                            </div>
+                        </div>
                     </div>
                 </div>
 
