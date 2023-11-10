@@ -31,21 +31,69 @@ class StoreDataHandler extends Controller
             $Brands      = brands::all();
             $Model       = car_model::all();
 
-            $Cars = DB::select('select * from car_stores where 1');
+            $Cars      = DB::select('select * from car_stores where 1');
+            $CarsParam = DB::select('SELECT `car_model_id` FROM `car_stores` WHERE 1');
 
-            if(    ($GET_Brands != "" && $GET_Brands != -1)   ||   ($GET_BodyTypes != "" && $GET_BodyTypes != -1)    ||   ($GET_Engine != "" && $GET_Engine != -1)     )
+            if(($GET_Brands != "" && $GET_Brands != -1)   ||   ($GET_BodyTypes != "" && $GET_BodyTypes != -1)    ||   ($GET_Engine != "" && $GET_Engine != -1))
             {
-                foreach($Cars as $Cars_card)
+                /**
+                 * Вывод авто с "витрины"
+                 */
+                foreach($CarsParam as $Cars_Param)
                 {
-                    if(    
-                        (($GET_Brands    == $Cars_card->car_id)       || ($GET_Brands    == "" || $GET_Brands    == -1)) &&
-                        (($GET_BodyTypes == $Cars_card->car_body_id)        || ($GET_BodyTypes == "" || $GET_BodyTypes == -1)) &&
-                        (($GET_Engine    == $Cars_card->car_engine_id)      || ($GET_Engine    == "" || $GET_Engine    == -1))
-                    )
-                    {
-                        dd($Cars);
-                    }
+                    echo($Cars_Param->car_model_id);
+                    echo("(");                    
+                        /**
+                        * бренд авто
+                        */
+                        $CarsModelParam = DB::select('SELECT `car_brand_id`, `car_body_id`, `car_engine_id` FROM `car_models` WHERE model_id = ?', [$Cars_Param->car_model_id]);
+                        foreach($CarsModelParam as $CarsModelParam_list)
+                        {
+                            echo($CarsModelParam_list->car_brand_id);
+                            break;
+                        }
+                    echo(")");
+
+                    echo("(");                    
+                        /**
+                        * кузов авто
+                        */
+                        $CarsModelParam = DB::select('SELECT `car_brand_id`, `car_body_id`, `car_engine_id` FROM `car_models` WHERE model_id = ?', [$Cars_Param->car_model_id]);
+                        foreach($CarsModelParam as $CarsModelParam_list)
+                        {
+                            echo($CarsModelParam_list->car_body_id);
+                            break;
+                        }
+                    echo(")");
+
+                    echo("(");                    
+                        /**
+                        * двигатель авто
+                        */
+                        $CarsModelParam = DB::select('SELECT `car_brand_id`, `car_body_id`, `car_engine_id` FROM `car_models` WHERE model_id = ?', [$Cars_Param->car_model_id]);
+                        foreach($CarsModelParam as $CarsModelParam_list)
+                        {
+                            echo($CarsModelParam_list->car_engine_id);
+                            break;
+                        }
+                    echo(")");
+
+                    echo("<br>");
                 }
+
+                // dd($CarsParam);
+                // $CarsParam = DB::select('SELECT `car_model_id` FROM `car_stores` WHERE 1');
+                // foreach($Cars as $Cars_card)
+                // {
+                //     if(    
+                //         (($GET_Brands    == $Cars_card->car_id)       || ($GET_Brands    == "" || $GET_Brands    == -1)) &&
+                //         (($GET_BodyTypes == $Cars_card->car_body_id)        || ($GET_BodyTypes == "" || $GET_BodyTypes == -1)) &&
+                //         (($GET_Engine    == $Cars_card->car_engine_id)      || ($GET_Engine    == "" || $GET_Engine    == -1))
+                //     )
+                //     {
+                //         dd($Cars);
+                //     }
+                // }
             }
             else
             {
