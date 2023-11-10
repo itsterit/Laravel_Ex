@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\bodytypes;
+use App\enginetypes;
+use App\brands;
+use App\car_model;
 use App\Http\Controllers\CharacteristicHandler;
 use Illuminate\Http\Request;
+use DB;
 
 class StoreDataHandler extends Controller
 {
@@ -21,7 +26,17 @@ class StoreDataHandler extends Controller
         }
         else
         {
-            dd($GET_IsGoStoreView);
+            $EngineTypes = enginetypes::all();
+            $BodyTypes   = bodytypes::all();
+            $Brands      = brands::all();
+            $Model       = car_model::all();
+
+            $users = DB::select('select * from car_stores where 1');
+
+            foreach($Brands as $brand)
+            {
+                dd($users);
+            }
         }
     }
 }

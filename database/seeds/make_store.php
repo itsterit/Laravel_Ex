@@ -265,5 +265,162 @@ class make_store extends Seeder
             'car_engine_id' => 6,
         ]);
 
-    }
+        /**
+         * Карточки товара
+         */
+        DB::table('car_stores')->insert([
+            'car_id'     => 1,
+            'car_info'   => 'jeep wrangler jk',
+            'was_rented' => 0,
+            'rent_price' => 1000,
+            'img_patch'  => 'jeep_wrangler_jk',
+        ]);
+        DB::table('car_stores')->insert([
+            'car_id'     => 2,
+            'car_info'   => 'jeep wrangler jl',
+            'was_rented' => 0,
+            'rent_price' => 1500,
+            'img_patch'  => 'jeep_wrangler_jl',
+        ]);
+        DB::table('car_stores')->insert([
+            'car_id'     => 3,
+            'car_info'   => 'jeep gladiator',
+            'was_rented' => 1,
+            'rent_price' => 2500,
+            'img_patch'  => 'jeep_gladiator',
+        ]);
+        DB::table('car_stores')->insert([
+            'car_id'     => 4,
+            'car_info'   => 'dodge ram',
+            'was_rented' => 0,
+            'rent_price' => 2300,
+            'img_patch'  => 'dodge_ram',
+        ]);
+        DB::table('car_stores')->insert([
+            'car_id'     => 5,
+            'car_info'   => 'dodge ram trx',
+            'was_rented' => 0,
+            'rent_price' => 3000,
+            'img_patch'  => 'dodge ram trx',
+        ]);
+        DB::table('car_stores')->insert([
+            'car_id'     => 6,
+            'car_info'   => 'dodge challenger',
+            'was_rented' => 1,
+            'rent_price' => 2000,
+            'img_patch'  => 'dodge_challenger',
+        ]);
+        DB::table('car_stores')->insert([
+            'car_id'     => 7,
+            'car_info'   => 'dodge challenger hellcat',
+            'was_rented' => 1,
+            'rent_price' => 3500,
+            'img_patch'  => 'dodge_challenger_hellcat',
+        ]);
+        DB::table('car_stores')->insert([
+            'car_id'     => 8,
+            'car_info'   => 'chevrolet camaro ss',
+            'was_rented' => 0,
+            'rent_price' => 2200,
+            'img_patch'  => 'chevrolet_camaro_ss',
+        ]);
+        DB::table('car_stores')->insert([
+            'car_id'     => 9,
+            'car_info'   => 'chevrolet niva',
+            'was_rented' => 0,
+            'rent_price' => 500,
+            'img_patch'  => 'chevrolet_niva',
+        ]);
+        DB::table('car_stores')->insert([
+            'car_id'     => 10,
+            'car_info'   => 'chevrolet trailblazer',
+            'was_rented' => 0,
+            'rent_price' => 1500,
+            'img_patch'  => 'chevrolet_trailblazer',
+        ]);
+        DB::table('car_stores')->insert([
+            'car_id'     => 11,
+            'car_info'   => 'Ford mustang',
+            'was_rented' => 0,
+            'rent_price' => 1900,
+            'img_patch'  => 'Ford_mustang',
+        ]);
+        DB::table('car_stores')->insert([
+            'car_id'     => 12,
+            'car_info'   => 'Ford bronco',
+            'was_rented' => 1,
+            'rent_price' => 3500,
+            'img_patch'  => 'Ford_bronco',
+        ]);
+        DB::table('car_stores')->insert([
+            'car_id'     => 13,
+            'car_info'   => 'Ford focus RS',
+            'was_rented' => 0,
+            'rent_price' => 1500,
+            'img_patch'  => 'Ford_focus_RS',
+        ]);
+        DB::table('car_stores')->insert([
+            'car_id'     => 14,
+            'car_info'   => 'Cadillac escalade',
+            'was_rented' => 0,
+            'rent_price' => 2800,
+            'img_patch'  => 'Cadillac_escalade',
+        ]);
+        DB::table('car_stores')->insert([
+            'car_id'     => 15,
+            'car_info'   => 'cadillac cts v',
+            'was_rented' => 0,
+            'rent_price' => 3000,
+            'img_patch'  => 'cadillac_cts_v',
+        ]);
+        DB::table('car_stores')->insert([
+            'car_id'     => 16,
+            'car_info'   => 'Buick Riviera',
+            'was_rented' => 1,
+            'rent_price' => 5000,
+            'img_patch'  => 'Buick_Riviera',
+        ]);
+        DB::table('car_stores')->insert([
+            'car_id'     => 17,
+            'car_info'   => 'Запорожец-966',
+            'was_rented' => 0,
+            'rent_price' => 250,
+            'img_patch'  => 'Запорожец_966',
+        ]);
+        DB::table('car_stores')->insert([
+            'car_id'     => 18,
+            'car_info'   => 'Запорожец-968',
+            'was_rented' => 1,
+            'rent_price' => 250,
+            'img_patch'  => 'Запорожец_968',
+        ]);
+        DB::table('car_stores')->insert([
+            'car_id'     => 18,
+            'car_info'   => 'Vesta sw',
+            'was_rented' => 0,
+            'rent_price' => 1000,
+            'img_patch'  => 'Vesta_sw',
+        ]);
+        DB::table('car_stores')->insert([
+            'car_id'     => 19,
+            'car_info'   => 'UAZ Patriot',
+            'was_rented' => 0,
+            'rent_price' => 1100,
+            'img_patch'  => 'UAZ_Patriot',
+        ]);
+        DB::table('car_stores')->insert([
+            'car_id'     => 20,
+            'car_info'   => 'УАЗ Комби Экспедиция',
+            'was_rented' => 1,
+            'rent_price' => 1300,
+            'img_patch'  => 'УАЗ_Комби_Экспедиция',
+        ]);
+        DB::table('car_stores')->insert([
+            'car_id'     => 21,
+            'car_info'   => 'ГАЗ-24',
+            'was_rented' => 1,
+            'rent_price' => 2200,
+            'img_patch'  => 'ГАЗ_24',
+        ]);
+    }   
 }
