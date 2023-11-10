@@ -31,12 +31,27 @@ class StoreDataHandler extends Controller
             $Brands      = brands::all();
             $Model       = car_model::all();
 
-            $users = DB::select('select * from car_stores where 1');
+            $Cars = DB::select('select * from car_stores where 1');
 
-            foreach($Brands as $brand)
+            if(    ($GET_Brands != "" && $GET_Brands != -1)   ||   ($GET_BodyTypes != "" && $GET_BodyTypes != -1)    ||   ($GET_Engine != "" && $GET_Engine != -1)     )
             {
-                dd($users);
+                foreach($Cars as $Cars_card)
+                {
+                    if(    
+                        (($GET_Brands    == $Cars_card->car_id)       || ($GET_Brands    == "" || $GET_Brands    == -1)) &&
+                        (($GET_BodyTypes == $Cars_card->car_body_id)        || ($GET_BodyTypes == "" || $GET_BodyTypes == -1)) &&
+                        (($GET_Engine    == $Cars_card->car_engine_id)      || ($GET_Engine    == "" || $GET_Engine    == -1))
+                    )
+                    {
+                        dd($Cars);
+                    }
+                }
             }
+            else
+            {
+                dd($Cars);
+            }
+
         }
     }
 }

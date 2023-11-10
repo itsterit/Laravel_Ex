@@ -19,6 +19,8 @@ class CreateCarStoresTable extends Migration
             $table->boolean('was_rented');
             $table->bigInteger('rent_price');
             $table->string('img_patch');
+
+            $table->foreign('car_id')->references('model_id')->on('car_models');
         });
     }
 
