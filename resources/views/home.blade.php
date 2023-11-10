@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
     <div class="row  mb-5 mt-5">
         <div class="col-md-8">
@@ -32,7 +33,7 @@
         $GET_Engine    = $_GET['EngineTypes'] ?? "";
         $GET_Model     = $_GET['Model']       ?? "";
     @endphp
-    <div class="mb-4">
+    <div class="mb-5">
         <form method="get" action="/StoreDataHandler" id="user_car_config">
 
             <!-- бренд -->
@@ -90,7 +91,7 @@
             </select>
 
             <!-- модель -->
-            <select class="form-control mb-2" name="Model" onchange="document.getElementById('user_car_config').submit()">             
+            <select class="form-control mb-3" name="Model" onchange="document.getElementById('user_car_config').submit()">             
                 @if( $GET_Model != "" )
                     <option value="-1" selected>Модель(неопределенна)</option>
                 @else
@@ -122,9 +123,17 @@
                     @endforeach
                 @endif
             </select>
+            
+            <button name="IsGoStoreView" value="1" type="submit" class="btn btn-dark">Поиск🔎</button>
 
         </form>
     </div>
+
+    <span class="text-muted">
+        Не знаете что выбрать? Посмотрите 
+        <a href="#" class="link-primary">статистику</a>
+        аренды и точно найдете то, что ищете!
+    </span>
 
 </div>
 @endsection

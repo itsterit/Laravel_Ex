@@ -46,6 +46,7 @@
 
             .title {
                 font-size: 84px;
+                color: black;
             }
 
             .links > a {
@@ -95,7 +96,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                Easy car rent - AutoRent
+                    Easy car rent - AutoRent
                 </div>
 
                 <div class="links">
