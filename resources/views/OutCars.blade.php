@@ -3,30 +3,6 @@
 @section('content')
 
 <div class="container">
-    <div class="row  mb-5 mt-5">
-        <div class="col-md-8">
-            <div class="">
-                <div class="text-primary">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    <h1>
-                        Hi {{ Auth::user()->name }}, you are logged in!!!
-                    </h1>
-
-                    @if ( Auth::user()->is_admin )
-                        <div class="text-success">
-                            (Активирован статус администратора)
-                        </div>
-                    @endif
-                </div>
-            </div>
-        </div>
-    </div> 
-
     @php
         $GET_BodyTypes         = $_GET['BodyTypes']           ?? "";
         $GET_Brands            = $_GET['Brands']              ?? "";
@@ -80,24 +56,39 @@
                 (($GET_Engine    == $DB_EngineTypes) || ($GET_Engine    == "" || $GET_Engine    == -1))
             )
             {
-                echo($Cars_Param->car_model_id);
-                echo("| ");                    
-                echo($Cars_Param->car_info);
-                echo(" |");                    
-                echo($Cars_Param->was_rented);
-                echo("|");                    
-                echo($Cars_Param->rent_price);
-                echo("|");                    
-                echo($Cars_Param->img_patch);
-                echo("("); 
-                
-                echo($DB_Brands);
-                echo($DB_BodyTypes);
-                echo($DB_EngineTypes);
-                echo(")"); 
-            }
+                // $DB_Brands_param      = DB::select('SELECT `body_type_name` FROM `bodytypes` WHERE brand_id = ?', [$DB_Brands]);
 
-            echo("<br>");
+                $DB_BodyTypes_param = "";
+                $DB_BodyTypes_search      = DB::select('SELECT `body_type_name` FROM `bodytypes` WHERE body_type_id = ?', [$DB_BodyTypes]);
+                foreach($DB_BodyTypes_search as $data)
+                {
+                    $DB_BodyTypes_param = $data->body_type_name;
+                    break;
+                }
+
+                // $DB_EngineTypes_param = DB::select('SELECT `car_brand_id` WHERE model_id = ?', [$DB_EngineTypes]);
+                @endphp
+
+                <div class="text-dark ">
+                    <div class="text-dark ">
+                        {{ $Cars_Param->car_info }}
+                    </div>
+                    <div class="text-dark ">
+                        {{ $Cars_Param->rent_price }}
+                    </div>
+                    <div class="text-dark ">
+                        {{ $Cars_Param->img_patch }}
+                    </div>
+                    <div class="text-dark ">
+                        {{ $Cars_Param->was_rented }}
+                    </div>
+                    <div class="text-dark ">
+                        {{ $DB_BodyTypes_param }}
+                    </div>
+                </div>
+
+                @php
+            }
         }
     @endphp
 
