@@ -97,7 +97,6 @@ class StoreDataHandler extends Controller
                         echo($DB_EngineTypes);
                         echo(")"); 
                     }
-
                     echo("<br>");
                 }
 
