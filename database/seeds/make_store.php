@@ -274,7 +274,7 @@ class make_store extends Seeder
             'car_info'     => 'jeep wrangler jk',
             'was_rented'   => 0,
             'rent_price'   => 1000,
-            'img_patch'    => 'jeep_wrangler_jk',
+            'img_patch'    => 'jeep_wrangler_jk.jpg',
         ]);
         DB::table('car_stores')->insert([
             'car_id'       => 2,
@@ -282,7 +282,7 @@ class make_store extends Seeder
             'car_info'     => 'jeep wrangler jl',
             'was_rented'   => 0,
             'rent_price'   => 1500,
-            'img_patch'    => 'jeep_wrangler_jl',
+            'img_patch'    => 'jeep_wrangler_jl.jfif',
         ]);
         DB::table('car_stores')->insert([
             'car_id'       => 3,
@@ -290,7 +290,7 @@ class make_store extends Seeder
             'car_info'     => 'jeep gladiator',
             'was_rented'   => 1,
             'rent_price'   => 2500,
-            'img_patch'    => 'jeep_gladiator',
+            'img_patch'    => 'jeep_gladiator.jpg',
         ]);
         DB::table('car_stores')->insert([
             'car_id'       => 4,
@@ -298,7 +298,7 @@ class make_store extends Seeder
             'car_info'     => 'dodge ram',
             'was_rented'   => 0,
             'rent_price'   => 2300,
-            'img_patch'    => 'dodge_ram',
+            'img_patch'    => 'dodge_ram.jpg',
         ]);
         DB::table('car_stores')->insert([
             'car_id'       => 5,
@@ -306,7 +306,7 @@ class make_store extends Seeder
             'car_info'     => 'dodge ram trx',
             'was_rented'   => 0,
             'rent_price'   => 3000,
-            'img_patch'    => 'dodge ram trx',
+            'img_patch'    => 'dodge_ram_trx.jpg',
         ]);
         DB::table('car_stores')->insert([
             'car_id'       => 6,
@@ -314,7 +314,7 @@ class make_store extends Seeder
             'car_info'     => 'dodge challenger',
             'was_rented'   => 1,
             'rent_price'   => 2000,
-            'img_patch'    => 'dodge_challenger',
+            'img_patch'    => 'dodge_challenger.jfif',
         ]);
         DB::table('car_stores')->insert([
             'car_id'       => 7,
@@ -322,7 +322,7 @@ class make_store extends Seeder
             'car_info'     => 'dodge challenger hellcat',
             'was_rented'   => 1,
             'rent_price'   => 3500,
-            'img_patch'    => 'dodge_challenger_hellcat',
+            'img_patch'    => 'dodge_challenger_hellcat.jpg',
         ]);
         DB::table('car_stores')->insert([
             'car_id'       => 8,
@@ -330,7 +330,7 @@ class make_store extends Seeder
             'car_info'     => 'chevrolet camaro ss',
             'was_rented'   => 0,
             'rent_price'   => 2200,
-            'img_patch'    => 'chevrolet_camaro_ss',
+            'img_patch'    => 'chevrolet_camaro_ss.jpg',
         ]);
         DB::table('car_stores')->insert([
             'car_id'        => 9,
@@ -338,7 +338,7 @@ class make_store extends Seeder
             'car_info'      => 'chevrolet niva',
             'was_rented'    => 0,
             'rent_price'    => 500,
-            'img_patch'     => 'chevrolet_niva',
+            'img_patch'     => 'chevrolet_niva.jpg',
         ]);
         DB::table('car_stores')->insert([
             'car_id'       => 10,
@@ -346,7 +346,7 @@ class make_store extends Seeder
             'car_info'     => 'chevrolet trailblazer',
             'was_rented'   => 0,
             'rent_price'   => 1500,
-            'img_patch'    => 'chevrolet_trailblazer',
+            'img_patch'    => 'chevrolet_trailblazer.jpg',
         ]);
         DB::table('car_stores')->insert([
             'car_id'       => 11,
@@ -354,7 +354,7 @@ class make_store extends Seeder
             'car_info'     => 'Ford mustang',
             'was_rented'   => 0,
             'rent_price'   => 1900,
-            'img_patch'    => 'Ford_mustang',
+            'img_patch'    => 'Ford_mustang.jpg',
         ]);
         DB::table('car_stores')->insert([
             'car_id'       => 12,
@@ -362,7 +362,7 @@ class make_store extends Seeder
             'car_info'     => 'Ford bronco',
             'was_rented'   => 1,
             'rent_price'   => 3500,
-            'img_patch'    => 'Ford_bronco',
+            'img_patch'    => 'Ford_bronco.jfif',
         ]);
         DB::table('car_stores')->insert([
             'car_id'       => 13,
@@ -370,7 +370,7 @@ class make_store extends Seeder
             'car_info'     => 'Ford focus RS',
             'was_rented'   => 0,
             'rent_price'   => 1500,
-            'img_patch'    => 'Ford_focus_RS',
+            'img_patch'    => 'Ford_focus_RS.jfif',
         ]);
         DB::table('car_stores')->insert([
             'car_id'       => 14,
@@ -378,7 +378,7 @@ class make_store extends Seeder
             'car_info'     => 'Cadillac escalade',
             'was_rented'   => 0,
             'rent_price'   => 2800,
-            'img_patch'    => 'Cadillac_escalade',
+            'img_patch'    => 'Cadillac_escalade.jfif',
         ]);
         DB::table('car_stores')->insert([
             'car_id'       => 15,
@@ -386,7 +386,7 @@ class make_store extends Seeder
             'car_info'     => 'cadillac cts v',
             'was_rented'   => 0,
             'rent_price'   => 3000,
-            'img_patch'    => 'cadillac_cts_v',
+            'img_patch'    => 'cadillac_cts_v.jpg',
         ]);
         DB::table('car_stores')->insert([
             'car_id'       => 16,
@@ -394,7 +394,7 @@ class make_store extends Seeder
             'car_info'     => 'Buick Riviera',
             'was_rented'   => 1,
             'rent_price'   => 5000,
-            'img_patch'    => 'Buick_Riviera',
+            'img_patch'    => 'Buick_Riviera.jpg',
         ]);
         DB::table('car_stores')->insert([
             'car_id'       => 17,
@@ -402,7 +402,7 @@ class make_store extends Seeder
             'car_info'     => 'Запорожец-966',
             'was_rented'   => 0,
             'rent_price'   => 250,
-            'img_patch'    => 'Запорожец_966',
+            'img_patch'    => 'zaz-966.jpg',
         ]);
         DB::table('car_stores')->insert([
             'car_id'       => 18,
@@ -410,7 +410,7 @@ class make_store extends Seeder
             'car_info'     => 'Vesta sw',
             'was_rented'   => 0,
             'rent_price'   => 1000,
-            'img_patch'    => 'Vesta_sw',
+            'img_patch'    => 'Vesta_sw.jpg',
         ]);
         DB::table('car_stores')->insert([
             'car_id'       => 19,
@@ -418,7 +418,7 @@ class make_store extends Seeder
             'car_info'     => 'UAZ Patriot',
             'was_rented'   => 0,
             'rent_price'   => 1100,
-            'img_patch'    => 'UAZ_Patriot',
+            'img_patch'    => 'UAZ_Patriot.jpg',
         ]);
         DB::table('car_stores')->insert([
             'car_id'       => 20,
@@ -426,7 +426,7 @@ class make_store extends Seeder
             'car_info'     => 'УАЗ Комби Экспедиция',
             'was_rented'   => 1,
             'rent_price'   => 1300,
-            'img_patch'    => 'УАЗ_Комби_Экспедиция',
+            'img_patch'    => 'uaz_combi.jpg',
         ]);
         DB::table('car_stores')->insert([
             'car_id'       => 21,
@@ -434,7 +434,7 @@ class make_store extends Seeder
             'car_info'     => 'ГАЗ-24',
             'was_rented'   => 1,
             'rent_price'   => 2200,
-            'img_patch'    => 'ГАЗ_24',
+            'img_patch'    => 'gaz-24.jpg',
         ]);
     }   
 }

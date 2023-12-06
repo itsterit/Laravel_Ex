@@ -2,6 +2,10 @@
 
 @section('content')
 
+<div class="container-fluid mx-5 ">
+    &nbsp
+</div>
+
 <div class="container">
     @php
         $GET_BodyTypes         = $_GET['BodyTypes']           ?? "";
@@ -86,8 +90,10 @@
 
                 <div class="d-flex flex-column">
                     <div class="text-dark mb-5 d-flex flex-row">
-                        <div class="text-dark mb-5">
-                            <img src="{{ $Cars_Param->img_patch }}" class="rounded float-start" alt=".img">
+                        <div class="text-dark mb-5 col-5">
+                            <div class="col-10">
+                                <img src="./img/{{ $Cars_Param->img_patch }}" class="img-fluid rounded" alt=".img">
+                            </div>
                         </div>
                         
                         <div class="text-dark mb-5 flex-column">
