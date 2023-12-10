@@ -14,9 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/RentAct', function () {
+    return view('RentAct');
+});
 
 Auth::routes();
-
 Route::get('/home', 'CharacteristicHandler@SearchCharacteristic');
 Route::get('/StoreDataHandler', 'StoreDataHandler@index');
 // Route::get('/home', 'HomeController@index')->name('home');

@@ -2,11 +2,20 @@
 
 @section('content')
 
-<div class="container-fluid mx-5 ">
-    &nbsp
-</div>
 
-<div class="container">
+<div class="container d-flex flex-wrap justify-content-evenly">
+    
+    <div class="container mb-5 mt-3">
+        <div>
+            <div class="col-12 p-5" style="background-image: url(./img/OutCarLogo.jpg); background-position: center; background-size: cover;">
+                <h1 class="text-white" style="opacity: 1.5;">
+                    Не знаете что выбрать? Смотрите 
+                        <a class="text-primary">статистику аренды</a>
+                    по выбранной категории и вы точно сможете определиться!
+                </h1>
+            </div>
+        </div>
+    </div>
     @php
         $GET_BodyTypes         = $_GET['BodyTypes']           ?? "";
         $GET_Brands            = $_GET['Brands']              ?? "";
@@ -16,7 +25,7 @@
         $DB_BodyTypes   = "";
         $DB_Brands      = "";       
         $Cars      = DB::select('select * from car_stores where 1');
-        $CarsParam = DB::select('SELECT `car_model_id`, `car_info`, `was_rented`, `rent_price`, `img_patch`  FROM `car_stores` WHERE 1');
+        $CarsParam = DB::select('SELECT `car_id`, `car_model_id`, `car_info`, `was_rented`, `rent_price`, `img_patch`  FROM `car_stores` WHERE 1');
 
 
         /**
@@ -87,35 +96,64 @@
                     break;
                 }
                 @endphp
-
-                <div class="d-flex flex-column">
-                    <div class="text-dark mb-5 d-flex flex-row">
-                        <div class="text-dark mb-5 col-5">
-                            <div class="col-10">
-                                <img src="./img/{{ $Cars_Param->img_patch }}" class="img-fluid rounded" alt=".img">
-                            </div>
-                        </div>
-                        
-                        <div class="text-dark mb-5 flex-column">
-                            <div class="text-dark ">
-                                Марка: {{ $DB_Brands_param }}
-                            </div>                        
-                            <div class="text-dark ">
-                                Тип кузова: {{ $DB_BodyTypes_param }}
-                            </div>
-                            <div class="text-dark ">
-                                Тип двигателя: {{ $DB_EngineTypes_param }}
-                            </div>
-                            <div class="text-dark ">
-                                модель: {{ $Cars_Param->car_info }}
-                            </div>
-                            <div class="text-dark ">
+            
+                <div class="col-11 col-sm-4 mb-4">
+                    <div class="text-dark d-flex">
+                        <div class="d-flex flex-column border border">
+                            @if( $Cars_Param->was_rented )
+                                <a class="text-dark w-100 mb-3" style="background: black;">
+                            @else    
+                                <a class="text-dark w-100 mb-3" style="background: black;" href="/RentAct?SelCarId={{ $Cars_Param->car_id }}">
+                            @endif
                                 @if( $Cars_Param->was_rented )
-                                    <button type="button" class="btn btn-danger">{{ $Cars_Param->rent_price }}</button>
-                                @else
-                                    <button type="button" class="btn btn-success">{{ $Cars_Param->rent_price }}</button>
+                                    <img src="./img/{{ $Cars_Param->img_patch }}" class="img-fluid rounded-0" alt=".img" style="height: 300px; object-fit: cover; opacity: 0.4;">
+                                @else    
+                                    <img src="./img/{{ $Cars_Param->img_patch }}" class="img-fluid rounded-0" alt=".img" style="height: 300px; object-fit: cover;">
                                 @endif
+                            </a>                       
+                            <div class="text-dark flex-column">
+
+                                <table class="table table-sm table-borderless">
+                                    <tbody>
+                                        <tr>
+                                            <td>Марка</td>
+                                            <td>{{ $DB_Brands_param }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Тип кузова</td>
+                                            <td>{{ $DB_BodyTypes_param }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Тип двигателя</td>
+                                            <td>{{ $DB_EngineTypes_param }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Модель</td>
+                                            <td>{{ $Cars_Param->car_info }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>стоимость</td>
+                                            <td>{{ $Cars_Param->rent_price }}/ч</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Статус</td>
+                                                @if( $Cars_Param->was_rented )
+                                                    <td>Арендовано</td>
+                                                @else    
+                                                    <td>Не арендовано</td>
+                                                @endif
+                                        </tr>
+                                    </tbody>
+                                </table>
+
                             </div>
+                            <!-- <div class="text-dark w-100">
+                                @if( $Cars_Param->was_rented )
+                                    <button type="button" class="btn btn-danger w-100 rounded-0">{{ $Cars_Param->rent_price }}/ч</button>
+                                @else
+                                    <button type="button" class="btn btn-success w-100 rounded-0">{{ $Cars_Param->rent_price }}/ч</button>
+                                @endif
+                            </div>     -->
                         </div>
                     </div>
                 </div>
